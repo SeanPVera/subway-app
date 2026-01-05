@@ -1,0 +1,39 @@
+<service>
+  <timestamp>01/05/2026 12:00PM</timestamp>
+  <subway>
+    <line>
+      <name>1, 2, 3</name>
+      <status>GOOD SERVICE</status>
+      <text></text>
+      <Date>01/05/2026</Date>
+      <Time>12:00PM</Time>
+    </line>
+    <line>
+      <name>4, 5, 6</name>
+      <status>PLANNED WORK</status>
+      <text>
+        <div>Weekend work causing local-only service between 125 St and Brooklyn Bridge.</div>
+      </text>
+      <Date>01/05/2026</Date>
+      <Time>12:00PM</Time>
+    </line>
+    <line>
+      <name>A, C, E</name>
+      <status>DELAYS</status>
+      <text>
+        <div>Expect delays in both directions while we investigate signal issues.</div>
+      </text>
+      <Date>01/05/2026</Date>
+      <Time>12:00PM</Time>
+    </line>
+    <line>
+      <name>N, Q, R, W</name>
+      <status>SERVICE CHANGE</status>
+      <text>
+        <div>N trains are running via the D between 59 St (Brooklyn) and Coney Island.</div>
+      </text>
+      <Date>01/05/2026</Date>
+      <Time>12:00PM</Time>
+    </line>
+  </subway>
+</service>

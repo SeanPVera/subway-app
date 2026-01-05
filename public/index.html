@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NYC Subway Status</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">Real-time NYC Transit</p>
+          <h1>Subway Line Status</h1>
+          <p class="lede">
+            Track what is happening across NYC subway lines. The data comes from
+            the MTA service status feed; if live data is unavailable, a sample
+            snapshot will appear instead.
+          </p>
+          <div class="actions">
+            <button id="refresh-btn" class="button">Refresh now</button>
+            <span id="source-label" class="pill"></span>
+          </div>
+        </div>
+        <div class="meta">
+          <div class="meta-item">
+            <p class="meta-label">Last updated</p>
+            <p id="updated-at" class="meta-value">Loading…</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Auto-refresh</p>
+            <p class="meta-value">Every 90 seconds</p>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section id="status-grid" class="grid" aria-live="polite"></section>
+        <div id="empty-state" class="empty hidden">
+          <p>Unable to load subway status. Please try again.</p>
+        </div>
+      </main>
+    </div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
