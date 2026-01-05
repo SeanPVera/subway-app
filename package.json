@@ -1,0 +1,20 @@
+{
+  "name": "subway-app",
+  "version": "1.0.0",
+  "description": "Web app that displays current NYC subway status via the MTA feed.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"No automated tests yet\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "xml2js": "^0.6.2"
+  }
+}
