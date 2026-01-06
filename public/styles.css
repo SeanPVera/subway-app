@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg: #0b1221;
-  --panel: #0f172a;
-  --text: #e2e8f0;
-  --muted: #94a3b8;
-  --accent: #38bdf8;
-  --border: rgba(148, 163, 184, 0.2);
-  --good: #22c55e;
-  --delays: #f97316;
-  --bad: #ef4444;
-  --planned: #facc15;
-  --pill: rgba(56, 189, 248, 0.1);
+  --bg: #f5f7fa;
+  --panel: #ffffff;
+  --text: #1f2937;
+  --muted: #4b5563;
+  --accent: #0039a6; /* MTA blue */
+  --border: #e5e7eb;
+  --good: #00933c; /* MTA green */
+  --delays: #ff6319; /* MTA orange */
+  --bad: #ee352e; /* MTA red */
+  --planned: #fccc0a; /* MTA yellow */
+  --pill: rgba(0, 57, 166, 0.08);
   --route-red: #ee352e;
   --route-green: #00933c;
   --route-blue: #0039a6;
@@ -22,7 +22,6 @@
   --route-brown: #996633;
   --route-lime: #6cbe45;
   --route-purple: #b933ad;
-  color-scheme: dark;
 }
 
 * {
@@ -31,32 +30,30 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.1), transparent 30%),
-    radial-gradient(circle at 70% 10%, rgba(124, 58, 237, 0.12), transparent 28%),
-    var(--bg);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg);
   color: var(--text);
   min-height: 100vh;
 }
 
 .page {
-  max-width: 1100px;
+  max-width: 1140px;
   margin: 0 auto;
-  padding: 32px 20px 48px;
+  padding: 32px 24px 48px;
 }
 
 .hero {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 24px;
+  gap: 28px;
   align-items: center;
   margin-bottom: 28px;
 }
 
 h1 {
-  margin: 4px 0 12px;
-  font-size: 36px;
-  letter-spacing: -0.02em;
+  margin: 6px 0 12px;
+  font-size: 34px;
+  letter-spacing: -0.01em;
 }
 
 p {
@@ -85,18 +82,18 @@ p {
 }
 
 .button {
-  background: linear-gradient(90deg, #38bdf8, #6366f1);
+  background: var(--accent);
   border: none;
-  color: #0b1221;
+  color: #ffffff;
   padding: 12px 16px;
-  border-radius: 10px;
+  border-radius: 12px;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 57, 166, 0.2);
 }
 
 .button:hover {
-  opacity: 0.95;
+  background: #012f88;
 }
 
 .pill {
@@ -106,9 +103,9 @@ p {
   padding: 10px 12px;
   background: var(--pill);
   color: var(--accent);
-  border-radius: 50px;
-  font-weight: 600;
-  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-weight: 700;
+  border: 1px solid rgba(0, 57, 166, 0.2);
 }
 
 .meta {
@@ -117,9 +114,9 @@ p {
   gap: 12px;
   padding: 18px;
   background: var(--panel);
-  border-radius: 16px;
+  border-radius: 14px;
   border: 1px solid var(--border);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 }
 
 .meta-label {
@@ -143,9 +140,9 @@ p {
 .card {
   background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .card-header {
@@ -177,8 +174,8 @@ p {
   font-weight: 800;
   letter-spacing: 0.02em;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(31, 41, 55, 0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .route-red {
@@ -244,27 +241,27 @@ p {
 }
 
 .badge.good {
-  background: rgba(34, 197, 94, 0.18);
-  color: #bbf7d0;
-  border: 1px solid rgba(34, 197, 94, 0.4);
+  background: rgba(0, 147, 60, 0.1);
+  color: #006b2a;
+  border: 1px solid rgba(0, 147, 60, 0.2);
 }
 
 .badge.delays {
-  background: rgba(249, 115, 22, 0.18);
-  color: #fed7aa;
-  border: 1px solid rgba(249, 115, 22, 0.4);
+  background: rgba(255, 99, 25, 0.12);
+  color: #c24600;
+  border: 1px solid rgba(255, 99, 25, 0.25);
 }
 
 .badge.bad {
-  background: rgba(239, 68, 68, 0.18);
-  color: #fecdd3;
-  border: 1px solid rgba(239, 68, 68, 0.4);
+  background: rgba(238, 53, 46, 0.12);
+  color: #a31812;
+  border: 1px solid rgba(238, 53, 46, 0.25);
 }
 
 .badge.planned {
-  background: rgba(250, 204, 21, 0.15);
-  color: #fef08a;
-  border: 1px solid rgba(250, 204, 21, 0.4);
+  background: rgba(252, 204, 10, 0.16);
+  color: #6b5400;
+  border: 1px solid rgba(252, 204, 10, 0.25);
 }
 
 .description {
@@ -284,9 +281,9 @@ p {
   padding: 16px;
   text-align: center;
   border-radius: 10px;
-  background: rgba(239, 68, 68, 0.08);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  color: #fecdd3;
+  background: rgba(238, 53, 46, 0.08);
+  border: 1px solid rgba(238, 53, 46, 0.25);
+  color: #7a1a17;
 }
 
 .hidden {
