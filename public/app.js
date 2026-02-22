@@ -3,6 +3,12 @@ const updatedAtEl = document.getElementById('updated-at');
 const refreshBtn = document.getElementById('refresh-btn');
 const emptyState = document.getElementById('empty-state');
 const sourceLabel = document.getElementById('source-label');
+const staleIndicator = document.getElementById('stale-indicator');
+const stationQuery = document.getElementById('station-query');
+const stationSearchBtn = document.getElementById('station-search-btn');
+const stationResults = document.getElementById('station-results');
+const loadAlertsBtn = document.getElementById('load-alerts-btn');
+const alertsList = document.getElementById('alerts-list');
 
 const ROUTE_COLORS = {
   '1': 'red',
@@ -58,7 +64,8 @@ function renderStatus(status) {
   }
 
   emptyState.classList.add('hidden');
-  sourceLabel.textContent = status.source === 'sample' ? 'Using sample data' : 'Live MTA feed';
+  sourceLabel.textContent = status.source === 'sample' ? 'Using sample data' : status.source === 'cache' ? 'Using cached data' : 'Live MTA feed';
+  staleIndicator.textContent = status.stale ? `Stale (${status.ageSeconds}s old)` : 'Fresh';
 
   status.lines.forEach((line) => {
     const routes = getRoutes(line.name);
@@ -133,7 +140,61 @@ async function fetchStatus() {
   }
 }
 
+function renderStationOptions(stations) {
+  stationResults.innerHTML = '';
+  stations.forEach((station) => {
+    const option = document.createElement('option');
+    option.value = station.id;
+    option.textContent = `${station.name} (${station.routes.join(', ')})`;
+    stationResults.appendChild(option);
+  });
+}
+
+async function searchStations() {
+  const query = stationQuery.value.trim();
+  const response = await fetch(`/api/stations?query=${encodeURIComponent(query)}`);
+  const data = await response.json();
+  renderStationOptions(data.stations || []);
+}
+
+async function loadStationAlerts() {
+  const stationId = stationResults.value;
+  alertsList.innerHTML = '';
+
+  if (!stationId) {
+    alertsList.textContent = 'Choose a station first.';
+    return;
+  }
+
+  const response = await fetch(`/api/alerts?stationId=${encodeURIComponent(stationId)}`);
+  const data = await response.json();
+
+  if (!data.alerts?.length) {
+    alertsList.textContent = 'No active disruptions found for that station.';
+    return;
+  }
+
+  data.alerts.forEach((alert) => {
+    const item = document.createElement('div');
+    item.className = 'alert-item';
+
+    const title = document.createElement('div');
+    title.className = 'alert-title';
+    title.textContent = `${alert.name} — ${alert.status}`;
+
+    const desc = document.createElement('div');
+    desc.textContent = alert.description || 'No details provided.';
+
+    item.appendChild(title);
+    item.appendChild(desc);
+    alertsList.appendChild(item);
+  });
+}
+
 refreshBtn.addEventListener('click', fetchStatus);
+stationSearchBtn.addEventListener('click', searchStations);
+loadAlertsBtn.addEventListener('click', loadStationAlerts);
 
 fetchStatus();
+searchStations();
 setInterval(fetchStatus, 90_000);

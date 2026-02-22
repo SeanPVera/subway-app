@@ -1,0 +1,10 @@
+[
+  {"id":"R14","name":"14 St - Union Sq","borough":"Manhattan","routes":["4","5","6","L","N","Q","R","W"]},
+  {"id":"R16","name":"Times Sq - 42 St","borough":"Manhattan","routes":["1","2","3","7","N","Q","R","W","S"]},
+  {"id":"A34","name":"Penn Station","borough":"Manhattan","routes":["1","2","3","A","C","E"]},
+  {"id":"A12","name":"125 St","borough":"Manhattan","routes":["A","B","C","D"]},
+  {"id":"D43","name":"Atlantic Av - Barclays Ctr","borough":"Brooklyn","routes":["2","3","4","5","B","D","N","Q","R"]},
+  {"id":"G15","name":"Court Sq","borough":"Queens","routes":["7","E","G","M"]},
+  {"id":"R11","name":"34 St - Herald Sq","borough":"Manhattan","routes":["B","D","F","M","N","Q","R","W"]},
+  {"id":"A02","name":"Inwood - 207 St","borough":"Manhattan","routes":["A"]}
+]
