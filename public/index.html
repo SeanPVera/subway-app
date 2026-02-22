@@ -13,9 +13,8 @@
           <p class="eyebrow">Real-time NYC Transit</p>
           <h1>Subway Line Status</h1>
           <p class="lede">
-            Track what is happening across NYC subway lines. The data comes from
-            the MTA service status feed; if live data is unavailable, a sample
-            snapshot will appear instead.
+            Track service health, search stations, and review active disruptions
+            tied to routes near where you ride.
           </p>
           <div class="actions">
             <button id="refresh-btn" class="button">Refresh now</button>
@@ -31,8 +30,24 @@
             <p class="meta-label">Auto-refresh</p>
             <p class="meta-value">Every 90 seconds</p>
           </div>
+          <div class="meta-item">
+            <p class="meta-label">Data freshness</p>
+            <p id="stale-indicator" class="meta-value">Checking…</p>
+          </div>
         </div>
       </header>
+
+      <section class="tooling card">
+        <h2>Station alert lookup</h2>
+        <p class="tooling-copy">Type a station, borough, or route to find matching stations and load route-specific alerts.</p>
+        <div class="search-row">
+          <input id="station-query" type="text" placeholder="Try: Union Sq, Queens, A, 7" />
+          <button id="station-search-btn" class="button">Search</button>
+        </div>
+        <select id="station-results"></select>
+        <button id="load-alerts-btn" class="button secondary">Load station alerts</button>
+        <div id="alerts-list" class="alerts-list"></div>
+      </section>
 
       <main>
         <section id="status-grid" class="grid" aria-live="polite"></section>
